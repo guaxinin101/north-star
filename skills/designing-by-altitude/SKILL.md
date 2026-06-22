@@ -1,90 +1,102 @@
 ---
 name: designing-by-altitude
-description: Use when formalizing or evolving the conceptual design of a software system — the intended target or vision, not the as-is — for the whole system (a North Star) or for one major block (a subsystem design). Triggers include starting a project's architecture, adding a major component, rethinking the system's shape above the spec/implementation level, or keeping a living architecture vision as session context. Not for specs, plans, feature slices, ADRs, or documenting what already exists.
+description: Use when formalizing or evolving the conceptual TARGET design of a software system or one major block — the intended shape above specs, ADRs and implementation, kept as living design-as-context. Also when a system already exists and you are tempted to document the as-is, or a pragmatic team wants a doc that reflects the real running system. Not for specs, plans, feature slices, or ADRs.
 ---
 
 # Designing by Altitude
 
 ## Overview
 
-Conceptual design lives at **fixed altitudes**. This skill owns exactly **two artifacts**, both describing the **target** (where the system is going), never the as-is:
+Conceptual design has an **altitude** — how far a document sits from the *problem* versus the *technology*. This skill owns the **target** design (where the system is going, never the as-is) at the altitude of **shape**: blocks, roles, and the contracts between them — as living **design-as-context** read at the start of every session.
 
-- **North Star** — the whole system, conceptual, tech-agnostic, stable.
-- **Subsystem design** — one block: its role and the contracts it exposes.
+**The engine is `superpowers:brainstorming`** — it drives the conversation that fills the doc. This skill adds what it lacks: the **altitude**, the **target shape**, the **notation**, and **where the doc lives**.
 
-Everything **below** them — stack/API/deploy decisions, feature slices, implementation — is *not* this skill. Those are ADRs and the `superpowers` spec → plan → code flow.
+## The altitude spine
 
-**The engine is `superpowers:brainstorming`.** It drives the conversation that fills any of these docs; this skill adds what it lacks — the *altitude*, the *target shape* of each doc, and *where it lives*.
+Design is organized by altitude (abstraction), top to bottom:
 
-- **When open questions remain that only your human partner can settle** → gather with `superpowers:brainstorming` (one question at a time, verification echo) before drafting.
-- **When the input is already specified** → state your premises explicitly at the top of the doc and draft. Don't stage a ritual interview over settled facts.
+```
+NEED      the problem, before any form     (why, for whom, capabilities)
+  ↓ reads
+CONCEPT   the mental model of the domain   (ubiquitous language, concepts)
+  ↓ reads
+SOLUTION  the conceptual form, tech-neutral   ← THIS SKILL (axis: structure)
+═══ altitude-stop ═══
+[out]     spec · ADR · schema/API · technology · numbers
+```
 
-## When to use / not
+This skill owns the **SOLUTION** layer. It **reads NEED and CONCEPT as input** and distills them; it stops at the altitude-stop. Higher layers get their own skills; until then the North Star distills them inline.
 
-- **Use:** the system's overall conceptual shape, or one block's role + contracts, **above** the spec.
-- **Not:** a feature/slice → `superpowers:brainstorming` → spec. A stack/tech decision → an **ADR**. Describing something that already exists → that's *documentation*, not design.
-
-## The two altitudes
+**Zoom is not altitude.** Inside SOLUTION there are two zooms:
 
 | | North Star | Subsystem design |
 |---|---|---|
-| **Scope** | whole system | one block |
-| **Answers** | "where are we going, and why?" | "what is this block's role, and what contracts does it expose?" |
-| **Tech** | agnostic | near-agnostic (structural roles, not APIs) |
-| **File** | `docs/design/north-star.md` (exactly one) | `docs/design/<name>.md` (N of them) |
-| **Stops before** | naming stacks/schemas | field-level APIs, schemas, latency numbers |
+| Zoom | whole system | one block |
+| Answers | "where are we going, and why?" | "what is this block's role, and what contracts does it expose?" |
+| File | `docs/design/north-star.md` (exactly one) | `docs/design/<name>.md` (N) |
 
-## Where they live (convention — required)
+A subsystem is not *lower altitude* than the North Star — it is *smaller in scope*.
 
-1. `docs/design/north-star.md` — **exactly one**, **required**, the top of the tree.
-2. `docs/design/<name>.md` — subsystem designs, **attachments** (add one when a block earns its own doc).
-3. A `## Design` section in the project root **`CLAUDE.md`** — **required** — short, ordering the agent to read `docs/design/north-star.md` first (design-as-context). It lists the attachments but does not restate them.
+## The discipline that fails without this skill: TARGET, not as-is
+
+Baseline testing showed agents already stop at the conceptual altitude and stay lean. The discipline that **does** break: when a system **already exists** and the team is **pragmatic**, agents document the **as-is**.
+
+**Design is the target.** Even with a running system, draw where it is *going*. The existing system is **input and `[LEGACY]`** you cite — never the body of the doc.
+
+| Rationalization | Reality |
+|---|---|
+| "Pragmatic means documenting the real system" | A target doc that mirrors the as-is rots with the code. The as-is is `[LEGACY]` you point to, not the design. |
+| "The team wants what's real, not academic" | The most useful real thing is the *target* every decision steers toward. Mark the as-is only to say what is superseded. |
+| "There's a prototype — let's mirror it" | The prototype is as-is. Where it contradicts the target, the target wins; where it's right, that's an ADR, not inertia. |
+
+If you are describing what exists, that is **documentation**, not design — out of scope.
+
+## Form — structured prose with Mermaid diagrams
+
+Agents don't reach for these by default; apply them deliberately. Every doc instantiates the **meta-template** (`templates/meta-template.md`): a header (`Altitude · Axis · Status · Focus-question`) plus seven sections.
+
+- **Prose** carries the soul — purpose, principles, contracts-as-meaning, alternatives, risks, the altitude-stop.
+- **Mermaid** carries skeleton and movement, only in the **body of the axis**: structure → `flowchart` + `subgraph`; flow → `sequenceDiagram` / `flowchart`; state → `stateDiagram-v2`.
+- In diagrams, **boxes are roles** (not services/classes) and **arrows are intentions** (not calls/signatures) — the altitude-stop applies to the drawing too.
 
 ## North Star — the shape
 
-Lean enough to be read at the start of every session. Ordered parts:
+Lean enough to read at the start of every session. It **distills the NEED above** (purpose, principles, the strategic turn) and draws the form:
 
-1. **Purpose + inviolable principles** — what the system is; the rules every decision must respect.
-2. **Strategy / the turn** — the core bet and *why*; alternatives weighed, roads not taken.
-3. **Blocks and how they fit** — a diagram of the blocks + the contracts (the arrows) between them. Roles, not tech.
-4. **Risks / open decisions** — what you now own; what is still unproven.
-5. **Decision & legacy map** — pointers to ADRs and to the subsystem docs; what this supersedes.
+1. **Purpose + inviolable principles** — what the system is; the rules every decision respects.
+2. **Strategy / the turn** — the core bet and why; roads not taken.
+3. **Blocks and how they fit** — a **Mermaid** diagram of blocks + contracts (roles, not tech).
+4. **Risks / open decisions.**
+5. **Decision & legacy map** — pointers to ADRs and subsystem docs; what this supersedes.
 
 ## Subsystem design — the shape
 
-**Read the North Star first** — it is the input; name the block you are zooming into and stay consistent with it. Ordered parts:
-
-1. **Role** — what this block is responsible for inside the North Star.
-2. **Internal shape** — the conceptual pieces inside and how they relate (no implementation).
-3. **Contracts exposed** — what flows in/out, as *meaning and protocol*, not signatures.
-4. **Alternatives + trade-offs** — the structural choices weighed.
-5. **Limitations / open questions.**
-
-**Altitude stop — the hard line.** Describe roles, responsibilities, and contracts-as-meaning. The moment you reach for a **struct field, a function signature, a wire format, a database schema, a concrete technology, or a latency/throughput number**, you have left this altitude. That detail belongs to an **ADR** (if it's a decision) or a **spec** (`superpowers`, if it's a slice). Leave a pointer, not the detail.
+**Read the North Star first.** Name the block; stay consistent with it. 1. **Role** · 2. **Internal shape** (Mermaid) · 3. **Contracts exposed** (meaning and protocol, not signatures) · 4. **Alternatives + trade-offs** · 5. **Limitations / open questions**.
 
 ## Every doc carries
 
-- **Status markers:** `[TARGET]` (wanted, not built) · `[DECIDED]` (firmed in an ADR) · `[FRONTIER]` (a bet still in research) · `[LEGACY]` (exists, being superseded).
-- **Alternatives with trade-offs**, not only the chosen path.
-- A **Limitations / Risks** section.
-- It **reads the one above as input** — subsystem ← North Star; the North Star reads nothing, it is the top.
+- **Focus-question** at the top — the single question it answers (two questions → two docs).
+- **Status markers:** `[TARGET]` (wanted, unbuilt) · `[DECIDED]` (firmed in an ADR) · `[FRONTIER]` (a bet in research) · `[LEGACY]` (exists, being superseded).
+- **Reads the altitude above as input** — SOLUTION reads CONCEPT + NEED; a subsystem reads the North Star.
+- **Altitude-stop** — the hard line: describe roles and contracts-as-meaning; the moment you reach for a field, signature, schema, wire format, concrete technology, or a latency/throughput number, you have left this altitude. Leave a pointer (ADR/spec), not the detail.
 
-## Maintaining (create / update)
+## Where they live (required)
 
-- **New system** → write `north-star.md` + the `CLAUDE.md` section.
-- **New major block** → add `docs/design/<name>.md`; link it from the North Star's blocks section.
-- **A decision lands (ADR) or reality shifts** → revise the affected doc deliberately and flip its status markers. The North Star is a *living point*, not a frozen relic — you don't append, you re-settle it.
+1. `docs/design/north-star.md` — exactly one, required, the top of the tree.
+2. `docs/design/<name>.md` — subsystem attachments (add one when a block earns its own doc).
+3. A `## Design` section in the project root **`CLAUDE.md`** — ordering the agent to read the North Star first (design-as-context).
 
 ## Common mistakes (from baseline testing)
 
 | Mistake | Fix |
 |---|---|
-| Doc too long to read as context | Keep it lean; push detail down to ADR/spec. |
-| Subsystem doc drifts into API fields, schemas, latencies | Below this altitude → ADR/spec. State the contract's *meaning*. |
+| Documenting the as-is because the team is "pragmatic" | Draw the target; the as-is is `[LEGACY]` you cite. |
+| ASCII/prose only, no diagrams | The body of the axis is Mermaid; boxes = roles, arrows = intentions. |
+| Mixing altitudes in one doc without naming them | This doc is SOLUTION; distill NEED/CONCEPT at the top, point down for the rest. |
+| Diagram drifts into signatures/schema/tech | Stop at the altitude-stop; that detail is an ADR/spec. |
 | Decisions stated without the alternatives | Show the roads not taken, and why. |
-| Subsystem written without reading the North Star | Read it first; name and cite the block. |
-| Writing the as-is | Design is the *target*. If it already exists, it's documentation — out of scope. |
+| Doc too long to read as context | Keep it lean; push detail down. |
 
 ## Example
 
-`example-north-star.md` (this skill's directory) is a real, lean North Star — the author's WTO project, in Portuguese. It is the canonical shape for altitude 1: ~5 sections, a block diagram, status markers, alternatives, risks, a decision/legacy map, and zero stack choices.
+`example-north-star.md` (this directory) — a real, lean North Star (the WTO project, in pt-BR).

@@ -11,7 +11,8 @@ design (the system you intend to build, and why), not as-is documentation.
 
 | Skill | What it does |
 |---|---|
-| [`designing-by-altitude`](skills/designing-by-altitude/SKILL.md) | Formalize and maintain a system's conceptual design **by altitude** — a **North Star** (whole system, tech-agnostic, stable) and **subsystem designs** (one block + its contracts) — as living *design-as-context*. Pairs with `superpowers:brainstorming` as the engine; stops above specs/ADRs. |
+| [`designing-by-altitude`](skills/designing-by-altitude/SKILL.md) | Formalize and maintain a system's conceptual **target** design **by altitude** (abstraction: NEED → CONCEPT → SOLUTION). Owns the **SOLUTION** layer — a **North Star** (whole system) and **subsystem designs** (one block + its contracts) — as living *design-as-context*, written as **structured prose with Mermaid diagrams**. Discipline: target, not as-is. Pairs with `superpowers:brainstorming`; stops above specs/ADRs. |
+| [`modeling-the-domain`](skills/modeling-the-domain/SKILL.md) | Capture the **CONCEPT** layer — a domain's **ubiquitous language**, its concepts and relations, and the **invariants** that always hold — as living *design-as-context* the SOLUTION layer reads. Per bounded context, with a polysemy table for cross-context terms. Discipline: stay at the knowledge level, never schema or services. `classDiagram` (not `erDiagram`). |
 
 _More design skills will join this toolkit over time._
 
