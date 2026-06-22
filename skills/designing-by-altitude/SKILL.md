@@ -1,6 +1,6 @@
 ---
 name: designing-by-altitude
-description: Use when formalizing or evolving the conceptual design of a software system — the intended target or vision, not the as-is — for the whole system (a North Star) or for one major block (a subsystem design). Triggers: starting a project's architecture, adding a major component, rethinking the system's shape above the spec/implementation level, or keeping a living architecture vision as session context. Not for specs, plans, feature slices, ADRs, or documenting what already exists.
+description: Use when formalizing or evolving the conceptual design of a software system — the intended target or vision, not the as-is — for the whole system (a North Star) or for one major block (a subsystem design). Triggers include starting a project's architecture, adding a major component, rethinking the system's shape above the spec/implementation level, or keeping a living architecture vision as session context. Not for specs, plans, feature slices, ADRs, or documenting what already exists.
 ---
 
 # Designing by Altitude
