@@ -15,6 +15,7 @@ design (the system you intend to build, and why), not as-is documentation.
 | [`modeling-the-domain`](skills/modeling-the-domain/SKILL.md) | Capture the **CONCEPT** layer — a domain's **ubiquitous language**, its concepts and relations, and the **invariants** that always hold — as living *design-as-context* the SOLUTION layer reads. Per bounded context, with a polysemy table for cross-context terms. Discipline: stay at the knowledge level, never schema or services. `classDiagram` (not `erDiagram`). |
 | [`designing-by-altitude`](skills/designing-by-altitude/SKILL.md) | Formalize and maintain a system's conceptual **target** design **by altitude** (abstraction: NEED → CONCEPT → SOLUTION). Owns the **SOLUTION** layer — a **North Star** (whole system) and **subsystem designs** (one block + its contracts) — as living *design-as-context*, written as **structured prose with Mermaid diagrams**. Discipline: target, not as-is. Pairs with `superpowers:brainstorming`; stops above specs/ADRs. |
 | [`narrating-the-flow`](skills/narrating-the-flow/SKILL.md) | Describe the **flow** axis — how the system behaves over **time**: a flow end to end, the **lifecycle** of one entity, or the **chain of domain events**. The companion of structure within SOLUTION (the same roles, in motion). Discipline: stay at the conceptual movement — never service calls, an enum/`status` column, or Kafka topics/schemas. `sequenceDiagram` / `stateDiagram-v2` / `flowchart` (boxes = roles, arrows = intentions/happenings). |
+| [`mapping-the-journey`](skills/mapping-the-journey/SKILL.md) | Map the **experience** axis — a user's journey **outside-in**: the stages, what the user does, thinks and **feels**, the touchpoints, the pains and the **moments of truth** (customer journey + service blueprint). The user-centric complement of `narrating-the-flow`. Discipline: stay in the experience — never UI screens, a click-flow, or named backstage systems (OMS/ERP/APIs). A journey table + emotional curve. |
 | [`canvassing-a-context`](skills/canvassing-a-context/SKILL.md) | Fill a **Bounded Context Canvas** — a one-page synthesis of **one bounded context**, crossing strategy (classification), concept (ubiquitous language + policies) and flow (inbound/outbound collaboration). The toolkit's first **aggregator**: it points to the layer skills instead of restating them. Discipline: the context is **not a microservice** — communication stays as messages-as-meaning, never REST endpoints, Kafka topics, schemas or a data model. |
 
 _More design skills will join this toolkit over time._
@@ -55,6 +56,7 @@ north-star/
 │   ├── modeling-the-domain/     # CONCEPT — ubiquitous language + domain model
 │   ├── designing-by-altitude/   # SOLUTION · structure — North Star + subsystem designs
 │   ├── narrating-the-flow/      # SOLUTION · flow — narrative, lifecycle, domain events
+│   ├── mapping-the-journey/     # experience · UX — customer journey + service blueprint
 │   └── canvassing-a-context/    # aggregator — Bounded Context Canvas (one context, one page)
 ├── templates/
 │   └── meta-template.md     # the common anatomy every skill instantiates

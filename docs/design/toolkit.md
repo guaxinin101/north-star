@@ -210,13 +210,16 @@ reescrita para:
   `[DECIDED 2026-06-22]` O North Star **permanece síntese ancorada**: vive na camada Solução
   e **distila o NEED** no topo (propósito, princípios, a virada), apontando para docs de NEED
   quando existirem. Validado no TDD da reescrita da `designing-by-altitude`.
-- **Sobreposição no eixo fluxo** — Narrativa de Fluxo, Fluxo de Eventos e Modelo de Estados
-  contam "como acontece" de ângulos diferentes. Consolidar fronteiras entre eles ao
-  detalhar cada template.
-- **Jornada / Camadas de Serviço** (UX) — eixo próprio ou variação opcional da Narrativa
-  de Fluxo? Em aberto.
-- **Empacotamento em skills** — uma skill por camada? por eixo? por template? Decidir
-  depois que a anatomia comum e 2–3 templates exemplares existirem.
+- **Sobreposição no eixo fluxo** — `[DECIDED 2026-06-22]` resolvida na skill `narrating-the-flow`
+  (seção "qual dos três"): Narrativa = cenário ponta-a-ponta entre papéis; Modelo de Estados =
+  ciclo de vida de UMA entidade; Fluxo de Eventos = cadeia causal de fatos. Uma pergunta por doc.
+- **Jornada / Camadas de Serviço** (UX) — `[DECIDED 2026-06-22]` **eixo próprio** (a *experiência*,
+  outside-in), distinto da Narrativa de Fluxo (sistema-cêntrica): skill `mapping-the-journey`
+  (customer journey + service blueprint), ancorada no NEED. Validado no TDD da skill.
+- **Empacotamento em skills** — `[DECIDED 2026-06-22]` na prática: **uma skill por camada**
+  (NEED/CONCEITO/SOLUÇÃO), **por eixo** transversal (fluxo, experiência) e **por agregador**
+  (Bounded Context Canvas) — cada skill cobre os artefatos do seu recorte e aponta para as
+  vizinhas. 6 skills validadas via TDD.
 
 ## 10. PARE AQUI (altitude-stop deste doc)
 
