@@ -1,14 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "nt",
+  "name": "north-star",
   "version": "0.1.0",
   "description": "Design skills toolkit for Claude Code. Formalize and maintain a system's conceptual design by altitude — a North Star (whole system) and subsystem designs (one block each) — as living design-as-context. First skill: designing-by-altitude.",
   "author": {
     "name": "gg",
     "url": "https://github.com/guaxinin101"
   },
-  "homepage": "https://github.com/guaxinin101/nt",
-  "repository": "https://github.com/guaxinin101/nt",
+  "homepage": "https://github.com/guaxinin101/north-star",
+  "repository": "https://github.com/guaxinin101/north-star",
   "license": "MIT",
   "keywords": ["design", "architecture", "north-star", "conceptual-design", "subsystem-design", "skills", "design-as-context"]
 }

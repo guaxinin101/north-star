@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "nt",
+  "name": "north-star",
   "description": "A growing toolkit of design skills for Claude Code: conceptual, target-oriented design (the system you intend to build), not as-is documentation.",
   "owner": {
     "name": "gg",
@@ -8,11 +8,11 @@
   },
   "plugins": [
     {
-      "name": "nt",
+      "name": "north-star",
       "description": "Design skills toolkit. First skill: designing-by-altitude — formalize and maintain a system's conceptual design (a North Star for the whole system, subsystem designs for each block) as living design-as-context.",
       "source": {
         "source": "github",
-        "repo": "guaxinin101/nt"
+        "repo": "guaxinin101/north-star"
       },
       "version": "0.1.0",
       "license": "MIT",

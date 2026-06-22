@@ -1,9 +1,11 @@
-# NT — Design Skills for Claude Code
+# North Star — Design Skills for Claude Code
 
 A growing toolkit of **design** skills for Claude Code — conceptual, *target-oriented*
 design (the system you intend to build, and why), not as-is documentation.
 
-> **NT** = _<define your tagline>_ <!-- TODO -->
+> A **North Star** is the fixed point you navigate by. This toolkit helps you set and
+> keep one for your software: the stable, tech-agnostic design vision the whole system
+> points to.
 
 ## Skills
 
@@ -16,11 +18,11 @@ _More design skills will join this toolkit over time._
 ## Install
 
 ```text
-/plugin marketplace add guaxinin101/nt
-/plugin install nt@nt
+/plugin marketplace add guaxinin101/north-star
+/plugin install north-star@north-star
 ```
 
-Skills are then invoked namespaced by the plugin: `/nt:designing-by-altitude`.
+Skills are then invoked namespaced by the plugin: `/north-star:designing-by-altitude`.
 
 ## Develop locally (no publishing needed)
 
@@ -30,7 +32,7 @@ From this repo's root:
 claude --plugin-dir .
 ```
 
-Then invoke `/nt:designing-by-altitude`. Edit a `SKILL.md`, re-run, iterate.
+Then invoke `/north-star:designing-by-altitude`. Edit a `SKILL.md`, re-run, iterate.
 To validate the structure before pushing:
 
 ```text
@@ -40,7 +42,7 @@ claude plugin validate .
 ## Layout
 
 ```text
-nt/
+north-star/
 ├── .claude-plugin/
 │   ├── marketplace.json     # this repo as a marketplace (lists the plugin)
 │   └── plugin.json          # the plugin manifest (name, version, license)
