@@ -12,7 +12,7 @@
       "description": "Design skills toolkit. First skill: designing-by-altitude — formalize and maintain a system's conceptual design (a North Star for the whole system, subsystem designs for each block) as living design-as-context.",
       "source": {
         "source": "github",
-        "repo": "OWNER/nt"
+        "repo": "guaxinin101/nt"
       },
       "version": "0.1.0",
       "license": "MIT",

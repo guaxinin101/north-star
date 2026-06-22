@@ -16,7 +16,7 @@ _More design skills will join this toolkit over time._
 ## Install
 
 ```text
-/plugin marketplace add OWNER/nt      # replace OWNER with your GitHub handle
+/plugin marketplace add guaxinin101/nt
 /plugin install nt@nt
 ```
 

@@ -5,10 +5,10 @@
   "description": "Design skills toolkit for Claude Code. Formalize and maintain a system's conceptual design by altitude — a North Star (whole system) and subsystem designs (one block each) — as living design-as-context. First skill: designing-by-altitude.",
   "author": {
     "name": "gg",
-    "url": "https://github.com/OWNER"
+    "url": "https://github.com/guaxinin101"
   },
-  "homepage": "https://github.com/OWNER/nt",
-  "repository": "https://github.com/OWNER/nt",
+  "homepage": "https://github.com/guaxinin101/nt",
+  "repository": "https://github.com/guaxinin101/nt",
   "license": "MIT",
   "keywords": ["design", "architecture", "north-star", "conceptual-design", "subsystem-design", "skills", "design-as-context"]
 }
