@@ -11,8 +11,9 @@ design (the system you intend to build, and why), not as-is documentation.
 
 | Skill | What it does |
 |---|---|
-| [`designing-by-altitude`](skills/designing-by-altitude/SKILL.md) | Formalize and maintain a system's conceptual **target** design **by altitude** (abstraction: NEED → CONCEPT → SOLUTION). Owns the **SOLUTION** layer — a **North Star** (whole system) and **subsystem designs** (one block + its contracts) — as living *design-as-context*, written as **structured prose with Mermaid diagrams**. Discipline: target, not as-is. Pairs with `superpowers:brainstorming`; stops above specs/ADRs. |
+| [`framing-the-need`](skills/framing-the-need/SKILL.md) | Frame the **NEED** layer — the **problem before any form**: why the system exists, for whom, the **capabilities and outcomes** it must deliver, and the **system as a black box** at its boundary (vision/PR-FAQ, impact map, boundary capabilities). The top of the spine — read by CONCEPT and SOLUTION. Discipline: stay at the problem; never descend into modules, services, APIs or screens. One black-box `flowchart`. |
 | [`modeling-the-domain`](skills/modeling-the-domain/SKILL.md) | Capture the **CONCEPT** layer — a domain's **ubiquitous language**, its concepts and relations, and the **invariants** that always hold — as living *design-as-context* the SOLUTION layer reads. Per bounded context, with a polysemy table for cross-context terms. Discipline: stay at the knowledge level, never schema or services. `classDiagram` (not `erDiagram`). |
+| [`designing-by-altitude`](skills/designing-by-altitude/SKILL.md) | Formalize and maintain a system's conceptual **target** design **by altitude** (abstraction: NEED → CONCEPT → SOLUTION). Owns the **SOLUTION** layer — a **North Star** (whole system) and **subsystem designs** (one block + its contracts) — as living *design-as-context*, written as **structured prose with Mermaid diagrams**. Discipline: target, not as-is. Pairs with `superpowers:brainstorming`; stops above specs/ADRs. |
 
 _More design skills will join this toolkit over time._
 
@@ -47,10 +48,13 @@ north-star/
 ├── .claude-plugin/
 │   ├── marketplace.json     # this repo as a marketplace (lists the plugin)
 │   └── plugin.json          # the plugin manifest (name, version, license)
-├── skills/
-│   └── designing-by-altitude/
-│       ├── SKILL.md
-│       └── example-north-star.md   # a real, lean North Star (WTO, in Portuguese)
+├── skills/                  # one skill per altitude layer (each with a SKILL.md + example)
+│   ├── framing-the-need/        # NEED — the problem, before any form
+│   ├── modeling-the-domain/     # CONCEPT — ubiquitous language + domain model
+│   └── designing-by-altitude/   # SOLUTION — North Star + subsystem designs
+├── templates/
+│   └── meta-template.md     # the common anatomy every skill instantiates
+├── docs/design/toolkit.md   # the toolkit's own design, organized by altitude
 ├── README.md
 └── LICENSE
 ```

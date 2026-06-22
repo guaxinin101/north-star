@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "north-star",
   "version": "0.1.0",
-  "description": "Design skills toolkit for Claude Code. Formalize and maintain a system's conceptual target design by altitude (NEED → CONCEPT → SOLUTION) as living design-as-context, written as structured prose with Mermaid diagrams. Skills: designing-by-altitude (SOLUTION layer — North Star + subsystem designs) and modeling-the-domain (CONCEPT layer — ubiquitous language + conceptual domain model).",
+  "description": "Design skills toolkit for Claude Code. Formalize and maintain a system's conceptual target design by altitude (NEED → CONCEPT → SOLUTION) as living design-as-context, written as structured prose with Mermaid diagrams. Skills: framing-the-need (NEED layer — vision, impact, boundary capabilities), modeling-the-domain (CONCEPT layer — ubiquitous language + conceptual domain model) and designing-by-altitude (SOLUTION layer — North Star + subsystem designs).",
   "author": {
     "name": "gg",
     "url": "https://github.com/guaxinin101"
@@ -10,5 +10,5 @@
   "homepage": "https://github.com/guaxinin101/north-star",
   "repository": "https://github.com/guaxinin101/north-star",
   "license": "MIT",
-  "keywords": ["design", "architecture", "north-star", "conceptual-design", "subsystem-design", "skills", "design-as-context"]
+  "keywords": ["design", "architecture", "north-star", "conceptual-design", "subsystem-design", "need-analysis", "capability-mapping", "skills", "design-as-context"]
 }
